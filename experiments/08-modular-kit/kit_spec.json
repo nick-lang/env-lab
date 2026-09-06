@@ -1,0 +1,10 @@
+{
+  "cell": [4.0, 4.0, 3.5],
+  "wall_thickness": 0.4,
+  "floor_thickness": 0.3,
+  "uv_m": 2.0,
+  "steps": 10,
+  "materials": {"Floor": "/Game/Materials/Gen/M_Gen_flagstone", "Wall": "/Game/Materials/Gen/M_Gen_stone_wall",
+                "Trim": "/Game/Materials/Gen/M_Gen_wood_planks", "Ceil": "/Game/Materials/Gen/M_Gen_plaster"},
+  "mesh_root": "/Game/Meshes/Kit"
+}

@@ -1,0 +1,87 @@
+{
+  "map": "/Game/Maps/Barrow_E1",
+  "restore": false,
+  "assets": [
+    {
+      "name": "SM_Gen_UprightWest",
+      "concept": "dolmen_upright_2",
+      "dims": [
+        1.7,
+        1.0,
+        7.2
+      ],
+      "center": true,
+      "fit": "uniform"
+    },
+    {
+      "name": "SM_Gen_UprightEast",
+      "concept": "dolmen_upright_1",
+      "dims": [
+        1.6,
+        0.95,
+        7.0
+      ],
+      "center": true,
+      "fit": "uniform"
+    },
+    {
+      "name": "SM_Gen_Lintel",
+      "concept": "dolmen_lintel_2",
+      "dims": [
+        9.4,
+        1.3,
+        1.2
+      ],
+      "center": true,
+      "fit": "uniform"
+    },
+    {
+      "name": "SM_Gen_Fallen",
+      "concept": "dolmen_fallen_2",
+      "dims": [
+        2.2,
+        1.6,
+        1.1
+      ],
+      "center": true,
+      "fit": "uniform"
+    },
+    {
+      "name": "SM_Gen_BoulderA",
+      "concept": "boulder_2",
+      "height": 2.8
+    },
+    {
+      "name": "SM_Gen_BoulderB",
+      "concept": "boulder_3",
+      "height": 3.4
+    }
+  ],
+  "swaps": [
+    {
+      "label": "Dolmen_UprightWest",
+      "fbx": "C:/Users/nickl/Documents/env-lab/build/gen3d/fbx/SM_Gen_UprightWest.fbx",
+      "material": "textured"
+    },
+    {
+      "label": "Dolmen_UprightEast",
+      "fbx": "C:/Users/nickl/Documents/env-lab/build/gen3d/fbx/SM_Gen_UprightEast.fbx",
+      "material": "textured"
+    },
+    {
+      "label": "Dolmen_Lintel",
+      "fbx": "C:/Users/nickl/Documents/env-lab/build/gen3d/fbx/SM_Gen_Lintel.fbx",
+      "material": "textured"
+    },
+    {
+      "label": "Dolmen_Fallen",
+      "fbx": "C:/Users/nickl/Documents/env-lab/build/gen3d/fbx/SM_Gen_Fallen.fbx",
+      "material": "textured"
+    }
+  ],
+  "imports": [
+    "C:/Users/nickl/Documents/env-lab/build/gen3d/fbx/SM_Gen_BoulderA.fbx",
+    "C:/Users/nickl/Documents/env-lab/build/gen3d/fbx/SM_Gen_BoulderB.fbx"
+  ],
+  "reimport": true
+}

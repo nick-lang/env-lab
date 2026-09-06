@@ -1,0 +1,224 @@
+{
+  "seed": 11,
+  "ground_labels": [
+    "Terrain_E1"
+  ],
+  "path": {
+    "amp": 220,
+    "period": 3800,
+    "y0": 760,
+    "y1": 8280
+  },
+  "gate": {
+    "x": 0,
+    "y": 12000
+  },
+  "materials": {
+    "rock": "/Game/Materials/M_LR3_L_Stone",
+    "leaf": "@grass",
+    "bark": {
+      "name": "M_EnvLab_Bark",
+      "rgb": [
+        0.16,
+        0.1,
+        0.07
+      ],
+      "roughness": 0.95
+    }
+  },
+  "layers": [
+    {
+      "name": "Pebbles",
+      "meshes": [
+        "SM_PebbleA",
+        "SM_PebbleB",
+        "SM_PebbleC"
+      ],
+      "slots": [
+        "rock"
+      ],
+      "region": [
+        -60,
+        -10,
+        60,
+        140
+      ],
+      "attempts_per_m2": 0.1,
+      "path_min": 0.9,
+      "path_max": 14.0,
+      "slope_max": 35,
+      "noise": {
+        "scale": 6.0,
+        "threshold": 0.42
+      },
+      "scale": [
+        0.7,
+        1.5
+      ],
+      "sink": 0.25,
+      "align_to_slope": true
+    },
+    {
+      "name": "Rocks",
+      "meshes": [
+        "SM_RockA",
+        "SM_RockB",
+        "SM_RockC"
+      ],
+      "slots": [
+        "rock"
+      ],
+      "region": [
+        -150,
+        -30,
+        150,
+        200
+      ],
+      "attempts_per_m2": 0.006,
+      "path_min": 2.5,
+      "gate_min": 6.0,
+      "slope_min": 0,
+      "slope_max": 40,
+      "slope_boost": 12,
+      "noise": {
+        "scale": 18.0,
+        "threshold": 0.45
+      },
+      "scale": [
+        0.8,
+        1.6
+      ],
+      "sink": 0.18,
+      "align_to_slope": true
+    },
+    {
+      "name": "Boulders",
+      "meshes": [
+        "/Game/Meshes/EnvLabGen/SM_Gen_BoulderA",
+        "/Game/Meshes/EnvLabGen/SM_Gen_BoulderB"
+      ],
+      "slots": [],
+      "region": [
+        -200,
+        -40,
+        200,
+        260
+      ],
+      "attempts_per_m2": 0.0009,
+      "path_min": 5.0,
+      "gate_min": 9.0,
+      "slope_min": 4,
+      "slope_max": 45,
+      "noise": {
+        "scale": 30.0,
+        "threshold": 0.5
+      },
+      "scale": [
+        0.8,
+        1.8
+      ],
+      "sink": 0.22,
+      "align_to_slope": false
+    },
+    {
+      "name": "GrassDense",
+      "meshes": [
+        "/Game/Meshes/Foliage/SM_GrassClumpA",
+        "/Game/Meshes/Foliage/SM_GrassClumpB"
+      ],
+      "slots": [
+        "leaf"
+      ],
+      "region": [
+        -70,
+        -10,
+        70,
+        150
+      ],
+      "attempts_per_m2": 0.18,
+      "path_min": 1.1,
+      "path_max": 40.0,
+      "gate_min": 3.0,
+      "slope_max": 32,
+      "noise": {
+        "scale": 9.0,
+        "threshold": 0.38
+      },
+      "scale": [
+        0.8,
+        1.6
+      ],
+      "sink": 0.0,
+      "align_to_slope": true
+    },
+    {
+      "name": "Shrubs",
+      "meshes": [
+        "SM_ShrubA",
+        "SM_ShrubB",
+        "SM_ShrubC"
+      ],
+      "slots": [
+        "leaf"
+      ],
+      "region": [
+        -160,
+        -30,
+        160,
+        210
+      ],
+      "attempts_per_m2": 0.02,
+      "path_min": 3.0,
+      "gate_min": 10.0,
+      "slope_max": 34,
+      "noise": {
+        "scale": 14.0,
+        "threshold": 0.5
+      },
+      "scale": [
+        0.7,
+        1.5
+      ],
+      "sink": 0.05,
+      "align_to_slope": false
+    },
+    {
+      "name": "Trees",
+      "meshes": [
+        "SM_TreeA",
+        "SM_TreeB",
+        "SM_TreeDead"
+      ],
+      "weights": [
+        0.45,
+        0.4,
+        0.15
+      ],
+      "slots": [
+        "bark",
+        "leaf"
+      ],
+      "region": [
+        -160,
+        -30,
+        160,
+        230
+      ],
+      "attempts_per_m2": 0.002,
+      "path_min": 9.0,
+      "gate_min": 22.0,
+      "slope_max": 32,
+      "noise": {
+        "scale": 30.0,
+        "threshold": 0.42
+      },
+      "scale": [
+        0.75,
+        1.35
+      ],
+      "sink": 0.05,
+      "align_to_slope": false,
+      "max_count": 220
+    }
+  ]
+}

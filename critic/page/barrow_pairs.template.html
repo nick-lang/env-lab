@@ -1,0 +1,318 @@
+<title>Barrow Pairs</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f3efe7; --surface: #fbf9f4; --line: #d9d2c4; --ink: #1d1a15; --muted: #6f675a;
+    --accent: #c9641f; --accent-ink: #fff7ee; --good: #4f8a3e; --pick: #e2a06a; --tie: #a39b8c;
+    --shadow: 0 1px 2px rgba(30, 20, 5, .08), 0 8px 24px rgba(30, 20, 5, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14120f; --surface: #1d1a16; --line: #332e28; --ink: #ece5d8; --muted: #9a9080;
+      --accent: #e0782e; --accent-ink: #1a1008; --good: #7fb069; --pick: #b8673a; --tie: #6f675a;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14120f; --surface: #1d1a16; --line: #332e28; --ink: #ece5d8; --muted: #9a9080;
+    --accent: #e0782e; --accent-ink: #1a1008; --good: #7fb069; --pick: #b8673a; --tie: #6f675a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 "IBM Plex Sans", system-ui, sans-serif; }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 22px 28px 10px; flex-wrap: wrap; }
+  h1 { font: 700 30px/1 "Fraunces", Georgia, serif; margin: 0; letter-spacing: -.01em; }
+  h1 small { font: 500 13px/1 "IBM Plex Mono", monospace; color: var(--muted); margin-left: 12px; letter-spacing: .04em; text-transform: uppercase; }
+  .stats { display: flex; gap: 20px; font: 500 13px/1 "IBM Plex Mono", monospace; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .stats b { color: var(--ink); font-weight: 500; }
+  main { padding: 6px 28px 40px; display: grid; gap: 18px; }
+  .prompt { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .prompt p { margin: 0; color: var(--muted); max-width: 62ch; }
+  .prompt kbd { font: 500 12px "IBM Plex Mono", monospace; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; color: var(--ink); background: var(--surface); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 860px) { .pair { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .12s ease, outline-color .12s; outline: 3px solid transparent; outline-offset: 2px; }
+  .card:hover { transform: translateY(-2px); }
+  .card:focus-visible, .card.hot { outline-color: var(--accent); }
+  .card img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+  .card .meta { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; font: 500 12px/1.2 "IBM Plex Mono", monospace; color: var(--muted); letter-spacing: .02em; }
+  .card .meta .tag { color: var(--ink); }
+  .card .meta .key { border: 1px solid var(--line); border-radius: 4px; padding: 2px 7px; }
+  .card.reveal .meta .tag { color: var(--accent); }
+  .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  button { font: 500 13px "IBM Plex Sans", system-ui, sans-serif; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 8px 14px; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+  button:disabled { opacity: .45; cursor: default; }
+  .toast { font: 500 12px "IBM Plex Mono", monospace; color: var(--muted); min-height: 1.4em; }
+  .panels { display: grid; grid-template-columns: 1.3fr 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 860px) { .panels { grid-template-columns: 1fr; } }
+  section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; }
+  section.panel h2 { font: 700 17px/1.2 "Fraunces", Georgia, serif; margin: 0 0 8px; }
+  section.panel p { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font: 13px/1.4 "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+  th { text-align: left; color: var(--muted); font-weight: 500; letter-spacing: .04em; text-transform: uppercase; font-size: 11px; padding: 4px 6px; border-bottom: 1px solid var(--line); }
+  td { padding: 4px 6px; border-bottom: 1px solid var(--line); }
+  td.bar { width: 40%; }
+  td.bar i { display: block; height: 8px; background: var(--pick); border-radius: 2px; }
+  tr.best td.bar i { background: var(--accent); }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 2px; }
+  .filters label { font: 500 12px "IBM Plex Mono", monospace; display: inline-flex; gap: 6px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; cursor: pointer; }
+  .agree { font: 500 36px/1 "Fraunces", Georgia, serif; margin: 6px 0 2px; }
+  .agree small { font: 500 12px "IBM Plex Mono", monospace; color: var(--muted); margin-left: 8px; }
+  .model-log { max-height: 220px; overflow: auto; font: 12px/1.4 "IBM Plex Mono", monospace; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; }
+  .model-log div { padding: 2px 0; }
+  .offline { border: 1px dashed var(--line); border-radius: 6px; padding: 10px 14px; color: var(--muted); font-size: 13px; }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
+</style>
+
+<header>
+  <h1>Barrow Pairs <small>env-lab critic</small></h1>
+  <div class="stats"><span>your picks <b id="nUser">0</b></span><span>model picks <b id="nModel">0</b></span><span>stills <b id="nStills">0</b></span></div>
+</header>
+
+<main>
+  <div class="prompt">
+    <p>Which frame would you rather have in the game? Pick fast, on gut. <kbd>A</kbd> left, <kbd>D</kbd> right, <kbd>S</kbd> too close to call. Labels show after you pick.</p>
+    <div class="actions"><button id="skip" title="Show a different pair">Skip pair</button></div>
+  </div>
+
+  <div class="pair">
+    <div class="card" id="cardA" tabindex="0" role="button" aria-label="Pick the left frame"><img id="imgA" alt="Left candidate"><div class="meta"><span class="tag" id="tagA">?</span><span class="key">A</span></div></div>
+    <div class="card" id="cardB" tabindex="0" role="button" aria-label="Pick the right frame"><img id="imgB" alt="Right candidate"><div class="meta"><span class="tag" id="tagB">?</span><span class="key">D</span></div></div>
+  </div>
+
+  <div class="actions">
+    <button id="tie">Too close to call</button>
+    <span class="toast" id="toast"></span>
+  </div>
+
+  <div id="offline" class="offline" hidden>Picks are not being saved: this view has no shared storage. You can still browse pairs.</div>
+
+  <div class="panels">
+    <section class="panel">
+      <h2>Ranking from your picks</h2>
+      <p>Bradley-Terry strengths, recomputed live. A still needs a few comparisons before its bar means anything.</p>
+      <div class="filters" id="filters"></div>
+      <table><thead><tr><th>#</th><th>still</th><th>set</th><th>w / n</th><th>strength</th></tr></thead><tbody id="rank"></tbody></table>
+    </section>
+    <section class="panel">
+      <h2>Model as second rater</h2>
+      <p>Claude judges the same pairs you already judged, blind to your answer, against the rubric. The number that matters is agreement. Below 70% the rubric changes, not the scene.</p>
+      <div class="agree"><span id="agree">&ndash;</span><small id="agreeN">no overlapping pairs yet</small></div>
+      <div class="actions"><button id="runModel" class="primary" disabled>Rate 10 of my pairs</button><button id="runModelAll" disabled>Rate all unrated</button></div>
+      <div class="model-log" id="modelLog"></div>
+    </section>
+  </div>
+</main>
+
+<script>
+const STILLS = __STILLS_JSON__;
+const RUBRIC = `You are judging two rendered game-environment stills (A and B) from the same project. Pick the one a demanding art director would rather ship, judging on: detail density at three scales (terrain, mid-size dressing, ground clutter); value structure and readable silhouettes; focal hierarchy (one clear focus); colour harmony with one accent; scale cues; and absence of tells (floating slabs, hard plane edges, uniform tufts, untextured primitives, blown-out highlights). Target family: Firewatch, Sable, Journey, Tunic. Ignore resolution and compression. Answer ONLY JSON: {"winner":"a"|"b"|"tie","reason":"<one sentence naming the deciding factor>"}. Use "tie" only when the frames are genuinely indistinguishable in quality.`;
+
+const byId = Object.fromEntries(STILLS.map(s => [s.id, s]));
+const EXPS = [...new Set(STILLS.map(s => s.exp))];
+let enabled = new Set(EXPS);
+let picks = [];            // all picks from db (user + model)
+let current = null;        // {a, b}
+let db = null, sample = null, sampleImages = false;
+const $ = id => document.getElementById(id);
+$("nStills").textContent = STILLS.length;
+
+// ---------- pair selection: same-shot cross-experiment pairs first, least-compared first
+function pairKey(a, b) { return a < b ? a + "|" + b : b + "|" + a; }
+function countMap(rater) {
+  const m = new Map();
+  for (const p of picks) if (!rater || p.rater === rater) m.set(pairKey(p.a, p.b), (m.get(pairKey(p.a, p.b)) || 0) + 1);
+  return m;
+}
+function candidates() {
+  const pool = STILLS.filter(s => enabled.has(s.exp));
+  const out = [];
+  for (let i = 0; i < pool.length; i++) for (let j = i + 1; j < pool.length; j++) {
+    const a = pool[i], b = pool[j];
+    if (a.exp === b.exp && a.shot !== b.shot) continue;         // same set, different shot: not informative
+    out.push({ a: a.id, b: b.id, same: a.shot === b.shot && a.exp !== b.exp });
+  }
+  return out;
+}
+function nextPair(exclude) {
+  const cm = countMap("user");
+  let c = candidates().filter(p => !exclude || pairKey(p.a, p.b) !== exclude);
+  if (!c.length) return null;
+  const minN = Math.min(...c.map(p => cm.get(pairKey(p.a, p.b)) || 0));
+  c = c.filter(p => (cm.get(pairKey(p.a, p.b)) || 0) === minN);
+  const same = c.filter(p => p.same);
+  const pick = (same.length && Math.random() < 0.75 ? same : c)[Math.floor(Math.random() * (same.length && Math.random() < 0.75 ? same.length : c.length))];
+  return Math.random() < 0.5 ? { a: pick.a, b: pick.b } : { a: pick.b, b: pick.a };
+}
+function show(pair) {
+  current = pair;
+  for (const side of ["A", "B"]) {
+    const s = byId[pair[side.toLowerCase()]];
+    $("img" + side).src = s.src;
+    $("tag" + side).textContent = "?";
+    $("card" + side).classList.remove("reveal", "hot");
+  }
+  $("toast").textContent = "";
+}
+function reveal() {
+  for (const side of ["A", "B"]) {
+    const s = byId[current[side.toLowerCase()]];
+    $("tag" + side).textContent = s.exp + " · " + s.shot;
+    $("card" + side).classList.add("reveal");
+  }
+}
+
+// ---------- persistence
+async function record(winner, rater, extra) {
+  if (!current) return;
+  const doc = { a: current.a, b: current.b, winner, rater, ts: Date.now(), ...(extra || {}) };
+  if (db) {
+    try { await db.collection("picks").add(doc); }
+    catch (e) { $("toast").textContent = "Could not save that pick (" + (e.code || e.message) + ")."; picks.push(doc); render(); }
+  } else { picks.push(doc); render(); }
+}
+async function userPick(winner) {
+  if (!current) return;
+  reveal();
+  const pair = current;
+  await record(winner, "user");
+  $("toast").textContent = winner === "tie" ? "Tie noted." : "Picked " + (winner === "a" ? "left" : "right") + ".";
+  setTimeout(() => { if (current === pair) show(nextPair(pairKey(pair.a, pair.b)) || pair); }, 550);
+}
+$("cardA").addEventListener("click", () => userPick("a"));
+$("cardB").addEventListener("click", () => userPick("b"));
+$("tie").addEventListener("click", () => userPick("tie"));
+$("skip").addEventListener("click", () => current && show(nextPair(pairKey(current.a, current.b)) || current));
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") return;
+  const k = e.key.toLowerCase();
+  if (k === "a" || k === "arrowleft") userPick("a");
+  else if (k === "d" || k === "arrowright") userPick("b");
+  else if (k === "s" || k === "arrowdown") userPick("tie");
+  else if (k === "n") $("skip").click();
+});
+
+// ---------- ranking (Bradley-Terry, MM updates)
+function ranking(rater) {
+  const ids = STILLS.filter(s => enabled.has(s.exp)).map(s => s.id);
+  const idx = new Map(ids.map((id, i) => [id, i]));
+  const n = ids.length, wins = new Array(n).fill(0), games = new Array(n).fill(0);
+  const pairsN = new Map();
+  for (const p of picks) {
+    if (p.rater !== rater || !idx.has(p.a) || !idx.has(p.b)) continue;
+    const i = idx.get(p.a), j = idx.get(p.b), k = pairKey(p.a, p.b);
+    pairsN.set(k, (pairsN.get(k) || 0) + 1);
+    games[i]++; games[j]++;
+    if (p.winner === "a") wins[i]++; else if (p.winner === "b") wins[j]++; else { wins[i] += .5; wins[j] += .5; }
+  }
+  let s = new Array(n).fill(1);
+  for (let it = 0; it < 60; it++) {
+    const denom = new Array(n).fill(0);
+    for (const [k, c] of pairsN) {
+      const [a, b] = k.split("|"); const i = idx.get(a), j = idx.get(b);
+      const d = c / (s[i] + s[j]); denom[i] += d; denom[j] += d;
+    }
+    const ns = s.map((v, i) => games[i] ? (wins[i] + .01) / (denom[i] + .01) : 1);
+    const mean = ns.reduce((x, y) => x + y, 0) / n;
+    s = ns.map(v => v / mean);
+  }
+  return ids.map((id, i) => ({ id, s: s[i], w: wins[i], n: games[i] })).sort((x, y) => y.s - x.s);
+}
+function agreement() {
+  const user = picks.filter(p => p.rater === "user" && p.winner !== "tie");
+  const model = picks.filter(p => p.rater === "model" && p.winner !== "tie");
+  const mm = new Map();
+  for (const m of model) mm.set(pairKey(m.a, m.b), m);
+  let both = 0, agree = 0;
+  for (const u of user) {
+    const m = mm.get(pairKey(u.a, u.b)); if (!m) continue;
+    both++;
+    const uw = u.winner === "a" ? u.a : u.b, mw = m.winner === "a" ? m.a : m.b;
+    if (uw === mw) agree++;
+  }
+  return { both, agree };
+}
+function render() {
+  $("nUser").textContent = picks.filter(p => p.rater === "user").length;
+  $("nModel").textContent = picks.filter(p => p.rater === "model").length;
+  const r = ranking("user"), max = Math.max(...r.map(x => x.s), 1e-6);
+  $("rank").innerHTML = r.map((x, i) => {
+    const s = byId[x.id];
+    return `<tr class="${i === 0 && x.n ? "best" : ""}"><td>${i + 1}</td><td>${s.shot}</td><td>${s.exp}</td><td>${x.w % 1 ? x.w.toFixed(1) : x.w} / ${x.n}</td><td class="bar"><i style="width:${(100 * x.s / max).toFixed(0)}%"></i></td></tr>`;
+  }).join("");
+  const ag = agreement();
+  $("agree").textContent = ag.both ? Math.round(100 * ag.agree / ag.both) + "%" : "–";
+  $("agreeN").textContent = ag.both ? `${ag.agree} of ${ag.both} decided pairs` : "no overlapping pairs yet";
+  const unrated = userPairsUnratedByModel().length;
+  $("runModel").disabled = !sample || !unrated; $("runModelAll").disabled = !sample || !unrated;
+  $("runModel").textContent = unrated ? `Rate 10 of my pairs (${unrated} left)` : "Nothing left to rate";
+  $("runModelAll").textContent = unrated ? `Rate all ${unrated}` : "Rate all unrated";
+}
+function userPairsUnratedByModel() {
+  const done = new Set(picks.filter(p => p.rater === "model").map(p => pairKey(p.a, p.b)));
+  const seen = new Set(), out = [];
+  for (const p of picks) {
+    if (p.rater !== "user") continue;
+    const k = pairKey(p.a, p.b); if (done.has(k) || seen.has(k)) continue;
+    seen.add(k); out.push({ a: p.a, b: p.b });
+  }
+  return out;
+}
+
+// ---------- filters
+for (const e of EXPS) {
+  const l = document.createElement("label");
+  l.innerHTML = `<input type="checkbox" checked> ${e}`;
+  l.querySelector("input").addEventListener("change", ev => { ev.target.checked ? enabled.add(e) : enabled.delete(e); if (enabled.size < 2) { ev.target.checked = true; enabled.add(e); } render(); show(nextPair() || current); });
+  $("filters").appendChild(l);
+}
+
+// ---------- model rater
+function dataUriToBlob(uri) {
+  const [head, b64] = uri.split(","); const mime = head.slice(5, head.indexOf(";"));
+  const bin = atob(b64); const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  return new Blob([arr], { type: mime });
+}
+async function modelRate(limit) {
+  const todo = userPairsUnratedByModel().slice(0, limit);
+  const log = $("modelLog");
+  $("runModel").disabled = true; $("runModelAll").disabled = true;
+  for (const pr of todo) {
+    try {
+      const res = await sample.json(RUBRIC + " The first image is A, the second is B.", { images: [dataUriToBlob(byId[pr.a].src), dataUriToBlob(byId[pr.b].src)], modelTier: "default", cache: false });
+      const winner = ["a", "b", "tie"].includes(res && res.winner) ? res.winner : "tie";
+      const doc = { a: pr.a, b: pr.b, winner, rater: "model", ts: Date.now(), reason: String((res && res.reason) || "").slice(0, 300) };
+      if (db) await db.collection("picks").add(doc); else { picks.push(doc); render(); }
+      const w = winner === "tie" ? "tie" : byId[winner === "a" ? pr.a : pr.b].exp + "·" + byId[winner === "a" ? pr.a : pr.b].shot;
+      log.insertAdjacentHTML("afterbegin", `<div><b>${w}</b> &mdash; ${doc.reason}</div>`);
+    } catch (e) {
+      log.insertAdjacentHTML("afterbegin", `<div>stopped: ${e.code || e.message}</div>`);
+      if (e.code === "rate_limited" || e.code === "not_granted" || e.code === "images_unavailable") break;
+    }
+  }
+  render();
+}
+$("runModel").addEventListener("click", () => modelRate(10));
+$("runModelAll").addEventListener("click", () => modelRate(10000));
+
+// ---------- boot
+show(nextPair());
+render();
+const hasRuntime = typeof claude !== "undefined" && claude && typeof claude.use === "function";
+(async () => {
+  db = hasRuntime ? await claude.use("db") : null;
+  if (!db) { $("offline").hidden = false; return; }
+  db.collection("picks").onSnapshot(snap => { picks = snap.docs.map(d => d.data()); render(); });
+})();
+(async () => {
+  sample = hasRuntime ? await claude.use("sample") : null;
+  if (!sample) return;
+  try { const lim = await sample.limits(); sampleImages = !!(lim && lim.images); } catch (e) { sampleImages = false; }
+  if (!sampleImages) { sample = null; $("modelLog").innerHTML = "<div>This view cannot send images to Claude, so the model pass runs from the lab instead.</div>"; }
+  render();
+})();
+</script>

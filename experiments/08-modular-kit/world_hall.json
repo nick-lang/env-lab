@@ -1,0 +1,616 @@
+{
+ "meta": {
+  "name": "hall",
+  "version": 1,
+  "seed": 3,
+  "map": "/Game/Maps/Hall_E8",
+  "units": "cm",
+  "intent": "A three-storey stone hall on flat ground: the first building assembled by the kit and the solver. Two doors, a stair on each of the lower floors."
+ },
+ "terrain": {
+  "id": "terrain",
+  "intent": "flat meadow so the building is the only subject",
+  "params": {
+   "seed": 3,
+   "size_m": 160,
+   "res": 81,
+   "origin": [
+    -80,
+    -80
+   ],
+   "base_z": 0.0,
+   "base_slope": 0.0,
+   "roll": {
+    "amp": 0.02,
+    "freq": 0.01
+   },
+   "detail": {
+    "amp": 0.01,
+    "freq": 0.05
+   },
+   "features": [],
+   "erosion": {
+    "iters": 0
+   },
+   "edge_fade": 20,
+   "samples": [
+    [
+     0,
+     0
+    ],
+    [
+     40,
+     40
+    ]
+   ]
+  },
+  "material": "/Game/Materials/Gen/M_Ground_Barrow"
+ },
+ "look": {
+  "id": "look",
+  "intent": "neutral daylight for judging architecture",
+  "sun": {
+   "class": "DirectionalLight",
+   "rot": [
+    -40.0,
+    45.0,
+    0.0
+   ],
+   "props": {
+    "intensity": 8.0,
+    "light_color": {
+     "r": 255,
+     "g": 247,
+     "b": 235,
+     "a": 255
+    },
+    "atmosphere_sun_light": true,
+    "cast_shadows": true,
+    "light_source_angle": 0.55
+   }
+  },
+  "sky": {
+   "class": "SkyLight",
+   "props": {
+    "intensity": 3.0,
+    "real_time_capture": true
+   }
+  },
+  "atmosphere": {
+   "class": "SkyAtmosphere",
+   "props": {}
+  },
+  "fog": {
+   "class": "ExponentialHeightFog",
+   "props": {
+    "fog_density": 0.008,
+    "fog_height_falloff": 0.2,
+    "fog_inscattering_luminance": {
+     "r": 0.35,
+     "g": 0.4,
+     "b": 0.5,
+     "a": 1.0
+    }
+   }
+  },
+  "clouds": {
+   "class": "VolumetricCloud",
+   "props": {
+    "layer_bottom_altitude": 4.0,
+    "layer_height": 10.0
+   }
+  },
+  "grade": {
+   "class": "PostProcessVolume",
+   "unbound": true,
+   "settings": {
+    "color_saturation": {
+     "x": 1.0,
+     "y": 1.0,
+     "z": 1.0,
+     "w": 1.0
+    },
+    "color_contrast": {
+     "x": 1.05,
+     "y": 1.05,
+     "z": 1.05,
+     "w": 1.0
+    },
+    "bloom_intensity": 0.3,
+    "vignette_intensity": 0.3,
+    "auto_exposure_bias": 0.8
+   }
+  }
+ },
+ "sites": [],
+ "props": [
+  {
+   "id": "prop.lamps",
+   "intent": "warm hall lamps, five per floor",
+   "parts": [],
+   "lights": [
+    {
+     "id": "prop.lamps.0",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      -1800.0,
+      -1800.0
+     ],
+     "above_ground": 280.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.1",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      2200.0,
+      -1800.0
+     ],
+     "above_ground": 280.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.2",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      -1800.0,
+      2200.0
+     ],
+     "above_ground": 280.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.3",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      2200.0,
+      2200.0
+     ],
+     "above_ground": 280.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.4",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      200.0,
+      200.0
+     ],
+     "above_ground": 280.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.5",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      -1800.0,
+      -1800.0
+     ],
+     "above_ground": 660.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.6",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      2200.0,
+      -1800.0
+     ],
+     "above_ground": 660.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.7",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      -1800.0,
+      2200.0
+     ],
+     "above_ground": 660.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.8",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      2200.0,
+      2200.0
+     ],
+     "above_ground": 660.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.9",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      200.0,
+      200.0
+     ],
+     "above_ground": 660.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.10",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      -1800.0,
+      -1800.0
+     ],
+     "above_ground": 1040.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.11",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      2200.0,
+      -1800.0
+     ],
+     "above_ground": 1040.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.12",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      -1800.0,
+      2200.0
+     ],
+     "above_ground": 1040.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.13",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      2200.0,
+      2200.0
+     ],
+     "above_ground": 1040.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    },
+    {
+     "id": "prop.lamps.14",
+     "intent": "hall lamps: warm fill so interiors can be judged",
+     "class": "PointLight",
+     "at": [
+      200.0,
+      200.0
+     ],
+     "above_ground": 1040.0,
+     "props": {
+      "intensity": 700.0,
+      "light_color": {
+       "r": 255,
+       "g": 214,
+       "b": 160,
+       "a": 255
+      },
+      "attenuation_radius": 2200.0,
+      "source_radius": 25.0,
+      "cast_shadows": true
+     }
+    }
+   ]
+  }
+ ],
+ "paths": [],
+ "biomes": [],
+ "structures": [
+  {
+   "id": "hall",
+   "intent": "a 20 x 20 cell, three-storey stone hall; windows and alcoves chosen by the solver, no two alike side by side; pillars sparse in the interior",
+   "at": [
+    -4000,
+    -4000
+   ],
+   "grid": [
+    20,
+    20,
+    3
+   ],
+   "cell": [
+    4.0,
+    4.0,
+    3.5
+   ],
+   "floor_thickness": 0.3,
+   "seed": 3,
+   "doors": [
+    [
+     10,
+     0,
+     "-y"
+    ],
+    [
+     0,
+     10,
+     "-x"
+    ]
+   ],
+   "stairs": [
+    [
+     4,
+     4,
+     0,
+     "+y"
+    ],
+    [
+     14,
+     14,
+     1,
+     "+y"
+    ]
+   ],
+   "kit_root": "/Game/Meshes/Kit",
+   "kit_bounds": "build/kit/kit_bounds.json",
+   "dressing": "blocks",
+   "library": "C:/Users/nickl/Documents/env-lab/build/library/blocks/manifest.json",
+   "above_ground": 25.0
+  }
+ ],
+ "player": {
+  "id": "player.start",
+  "at": [
+   200,
+   -6000
+  ],
+  "above_ground": 125.0,
+  "yaw": 90.0,
+  "game_mode": "/Game/ThirdPerson/Blueprints/BP_ThirdPersonGameMode.BP_ThirdPersonGameMode_C"
+ },
+ "shots": [
+  {
+   "name": "exterior",
+   "loc": [
+    -9000,
+    -13000,
+    900
+   ],
+   "rot": [
+    -6,
+    55
+   ],
+   "fov": 60,
+   "rel": true
+  },
+  {
+   "name": "door",
+   "loc": [
+    200,
+    -5200,
+    170
+   ],
+   "rot": [
+    4,
+    90
+   ],
+   "fov": 70,
+   "rel": true
+  },
+  {
+   "name": "hall_floor",
+   "loc": [
+    200,
+    -3000,
+    170
+   ],
+   "rot": [
+    2,
+    60
+   ],
+   "fov": 80,
+   "rel": true
+  },
+  {
+   "name": "stair",
+   "loc": [
+    -2200,
+    -3200,
+    170
+   ],
+   "rot": [
+    8,
+    70
+   ],
+   "fov": 75,
+   "rel": true
+  },
+  {
+   "name": "window_row",
+   "loc": [
+    3000,
+    1000,
+    170
+   ],
+   "rot": [
+    3,
+    0
+   ],
+   "fov": 75,
+   "rel": true
+  },
+  {
+   "name": "roof",
+   "loc": [
+    -6000,
+    -6000,
+    1500
+   ],
+   "rot": [
+    -25,
+    45
+   ],
+   "fov": 70,
+   "rel": true
+  }
+ ]
+}

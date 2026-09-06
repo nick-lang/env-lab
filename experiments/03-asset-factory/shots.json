@@ -1,0 +1,14 @@
+{
+  "prefix": "E3_",
+  "out": "C:/Users/nickl/Documents/env-lab/build/snaps/e3",
+  "ground_labels": ["Terrain_E1"],
+  "shots": [
+    {"name": "player",   "loc": [0, 700, 280],      "rot": [-1, 90],  "fov": 75, "rel": true},
+    {"name": "hero",     "loc": [-330, 3700, 250],  "rot": [-3, 60],  "fov": 60, "rel": true},
+    {"name": "path_low", "loc": [-160, 2500, 150],  "rot": [-6, 80],  "fov": 70, "rel": true},
+    {"name": "gate",     "loc": [0, 9800, 420],     "rot": [3, 90],   "fov": 55, "rel": true},
+    {"name": "stone",    "loc": [-1450, 11050, 500], "rot": [-8, 50], "fov": 60, "rel": true},
+    {"name": "wide",     "loc": [-2600, 1200, 900], "rot": [-9, 62],  "fov": 65, "rel": true},
+    {"name": "gate_low", "loc": [-260, 10600, 180], "rot": [8, 78],   "fov": 60, "rel": true}
+  ]
+}

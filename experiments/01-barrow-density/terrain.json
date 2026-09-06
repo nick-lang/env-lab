@@ -1,0 +1,176 @@
+{
+  "seed": 7,
+  "size_m": 512,
+  "res": 257,
+  "origin": [
+    -256,
+    -64
+  ],
+  "base_z": -4.6,
+  "base_slope": 0.008,
+  "roll": {
+    "amp": 2.2,
+    "freq": 0.0045
+  },
+  "detail": {
+    "amp": 0.9,
+    "freq": 0.015
+  },
+  "path": {
+    "amp": 2.2,
+    "period": 38.0,
+    "y0": 7.0,
+    "y1": 83.0,
+    "inner": 3.5,
+    "outer": 11.0
+  },
+  "features": [
+    {
+      "type": "dome",
+      "x": 0,
+      "y": 120,
+      "sigma": 26,
+      "height": 7.5
+    },
+    {
+      "type": "dome",
+      "x": -18,
+      "y": 132,
+      "sigma": 14,
+      "height": 1.5
+    },
+    {
+      "type": "bowl",
+      "x": 0,
+      "y": 170,
+      "sigma": 24,
+      "depth": 4.5
+    },
+    {
+      "type": "bowl",
+      "x": 30,
+      "y": 55,
+      "sigma": 18,
+      "depth": 1.8
+    },
+    {
+      "type": "bowl",
+      "x": -34,
+      "y": 90,
+      "sigma": 16,
+      "depth": 1.4
+    },
+    {
+      "type": "ridge",
+      "x": -105,
+      "y": 60,
+      "length": 90,
+      "width": 28,
+      "height": 22,
+      "angle": 15
+    },
+    {
+      "type": "ridge",
+      "x": 110,
+      "y": 85,
+      "length": 120,
+      "width": 34,
+      "height": 26,
+      "angle": -20
+    },
+    {
+      "type": "ridge",
+      "x": -80,
+      "y": 215,
+      "length": 150,
+      "width": 42,
+      "height": 22,
+      "angle": 5
+    },
+    {
+      "type": "ridge",
+      "x": 90,
+      "y": 235,
+      "length": 170,
+      "width": 48,
+      "height": 24,
+      "angle": -8
+    },
+    {
+      "type": "ridge",
+      "x": 0,
+      "y": 340,
+      "length": 220,
+      "width": 70,
+      "height": 24,
+      "angle": 0
+    },
+    {
+      "type": "ridge",
+      "x": -190,
+      "y": 140,
+      "length": 160,
+      "width": 50,
+      "height": 40,
+      "angle": 80
+    },
+    {
+      "type": "ridge",
+      "x": 200,
+      "y": 160,
+      "length": 180,
+      "width": 55,
+      "height": 42,
+      "angle": 95
+    },
+    {
+      "type": "ridge",
+      "x": -40,
+      "y": -40,
+      "length": 120,
+      "width": 30,
+      "height": 12,
+      "angle": 0
+    }
+  ],
+  "erosion": {
+    "iters": 12000,
+    "radius": 3,
+    "capacity": 3.0,
+    "erode_speed": 0.2,
+    "deposit_speed": 0.35,
+    "max_life": 40,
+    "smooth_passes": 3
+  },
+  "samples": [
+    [
+      0,
+      120
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      -105,
+      60
+    ],
+    [
+      110,
+      85
+    ],
+    [
+      -80,
+      215
+    ],
+    [
+      30,
+      55
+    ],
+    [
+      -190,
+      140
+    ]
+  ],
+  "edge_fade": 45
+}

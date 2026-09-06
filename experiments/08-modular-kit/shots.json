@@ -1,0 +1,93 @@
+{
+ "prefix": "E8B_",
+ "out": "C:/Users/nickl/Documents/env-lab/build/snaps/e8b",
+ "ground_labels": [
+  "terrain"
+ ],
+ "shots": [
+  {
+   "fov": 60,
+   "loc": [
+    -9000,
+    -13000,
+    900
+   ],
+   "name": "exterior",
+   "rel": true,
+   "rot": [
+    -6,
+    55
+   ]
+  },
+  {
+   "fov": 70,
+   "loc": [
+    200,
+    -5200,
+    170
+   ],
+   "name": "door",
+   "rel": true,
+   "rot": [
+    4,
+    90
+   ]
+  },
+  {
+   "fov": 80,
+   "loc": [
+    200,
+    -3000,
+    170
+   ],
+   "name": "hall_floor",
+   "rel": true,
+   "rot": [
+    2,
+    60
+   ]
+  },
+  {
+   "fov": 75,
+   "loc": [
+    -2200,
+    -3200,
+    170
+   ],
+   "name": "stair",
+   "rel": true,
+   "rot": [
+    8,
+    70
+   ]
+  },
+  {
+   "fov": 75,
+   "loc": [
+    3000,
+    1000,
+    170
+   ],
+   "name": "window_row",
+   "rel": true,
+   "rot": [
+    3,
+    0
+   ]
+  },
+  {
+   "fov": 70,
+   "loc": [
+    -6000,
+    -6000,
+    1500
+   ],
+   "name": "roof",
+   "rel": true,
+   "rot": [
+    -25,
+    45
+   ]
+  }
+ ]
+}

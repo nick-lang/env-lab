@@ -1,0 +1,107 @@
+{
+ "prefix": "E7_",
+ "out": "C:/Users/nickl/Documents/env-lab/build/snaps/e7",
+ "ground_labels": [
+  "terrain"
+ ],
+ "shots": [
+  {
+   "fov": 75,
+   "loc": [
+    0,
+    700,
+    280
+   ],
+   "name": "player",
+   "rel": true,
+   "rot": [
+    -1,
+    90
+   ]
+  },
+  {
+   "fov": 60,
+   "loc": [
+    -330,
+    3700,
+    250
+   ],
+   "name": "hero",
+   "rel": true,
+   "rot": [
+    -3,
+    60
+   ]
+  },
+  {
+   "fov": 70,
+   "loc": [
+    -160,
+    2500,
+    150
+   ],
+   "name": "path_low",
+   "rel": true,
+   "rot": [
+    -6,
+    80
+   ]
+  },
+  {
+   "fov": 55,
+   "loc": [
+    0,
+    9800,
+    420
+   ],
+   "name": "gate",
+   "rel": true,
+   "rot": [
+    3,
+    90
+   ]
+  },
+  {
+   "fov": 60,
+   "loc": [
+    -1450,
+    11050,
+    500
+   ],
+   "name": "stone",
+   "rel": true,
+   "rot": [
+    -8,
+    50
+   ]
+  },
+  {
+   "fov": 65,
+   "loc": [
+    -2600,
+    1200,
+    900
+   ],
+   "name": "wide",
+   "rel": true,
+   "rot": [
+    -9,
+    62
+   ]
+  },
+  {
+   "fov": 60,
+   "loc": [
+    -260,
+    10600,
+    180
+   ],
+   "name": "gate_low",
+   "rel": true,
+   "rot": [
+    8,
+    78
+   ]
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+[
+ {
+  "id": "baseline__LR10_gate",
+  "exp": "baseline",
+  "shot": "gate",
+  "file": "build/critic/img/baseline__LR10_gate.jpg",
+  "kb": 35
+ },
+ {
+  "id": "baseline__LR10_hero",
+  "exp": "baseline",
+  "shot": "hero",
+  "file": "build/critic/img/baseline__LR10_hero.jpg",
+  "kb": 33
+ },
+ {
+  "id": "baseline__LR10_path_low",
+  "exp": "baseline",
+  "shot": "path_low",
+  "file": "build/critic/img/baseline__LR10_path_low.jpg",
+  "kb": 31
+ },
+ {
+  "id": "baseline__LR10_player",
+  "exp": "baseline",
+  "shot": "player",
+  "file": "build/critic/img/baseline__LR10_player.jpg",
+  "kb": 27
+ },
+ {
+  "id": "baseline__LR9B_stone",
+  "exp": "baseline",
+  "shot": "stone",
+  "file": "build/critic/img/baseline__LR9B_stone.jpg",
+  "kb": 34
+ },
+ {
+  "id": "e1__E1_gate",
+  "exp": "e1",
+  "shot": "gate",
+  "file": "build/critic/img/e1__E1_gate.jpg",
+  "kb": 75
+ },
+ {
+  "id": "e1__E1_gate_low",
+  "exp": "e1",
+  "shot": "gate_low",
+  "file": "build/critic/img/e1__E1_gate_low.jpg",
+  "kb": 56
+ },
+ {
+  "id": "e1__E1_hero",
+  "exp": "e1",
+  "shot": "hero",
+  "file": "build/critic/img/e1__E1_hero.jpg",
+  "kb": 98
+ },
+ {
+  "id": "e1__E1_path_low",
+  "exp": "e1",
+  "shot": "path_low",
+  "file": "build/critic/img/e1__E1_path_low.jpg",
+  "kb": 88
+ },
+ {
+  "id": "e1__E1_player",
+  "exp": "e1",
+  "shot": "player",
+  "file": "build/critic/img/e1__E1_player.jpg",
+  "kb": 84
+ },
+ {
+  "id": "e1__E1_stone",
+  "exp": "e1",
+  "shot": "stone",
+  "file": "build/critic/img/e1__E1_stone.jpg",
+  "kb": 85
+ },
+ {
+  "id": "e1__E1_wide",
+  "exp": "e1",
+  "shot": "wide",
+  "file": "build/critic/img/e1__E1_wide.jpg",
+  "kb": 106
+ },
+ {
+  "id": "e3__E3_gate",
+  "exp": "e3",
+  "shot": "gate",
+  "file": "build/critic/img/e3__E3_gate.jpg",
+  "kb": 76
+ },
+ {
+  "id": "e3__E3_gate_low",
+  "exp": "e3",
+  "shot": "gate_low",
+  "file": "build/critic/img/e3__E3_gate_low.jpg",
+  "kb": 59
+ },
+ {
+  "id": "e3__E3_hero",
+  "exp": "e3",
+  "shot": "hero",
+  "file": "build/critic/img/e3__E3_hero.jpg",
+  "kb": 99
+ },
+ {
+  "id": "e3__E3_path_low",
+  "exp": "e3",
+  "shot": "path_low",
+  "file": "build/critic/img/e3__E3_path_low.jpg",
+  "kb": 88
+ },
+ {
+  "id": "e3__E3_player",
+  "exp": "e3",
+  "shot": "player",
+  "file": "build/critic/img/e3__E3_player.jpg",
+  "kb": 84
+ },
+ {
+  "id": "e3__E3_stone",
+  "exp": "e3",
+  "shot": "stone",
+  "file": "build/critic/img/e3__E3_stone.jpg",
+  "kb": 84
+ },
+ {
+  "id": "e3__E3_wide",
+  "exp": "e3",
+  "shot": "wide",
+  "file": "build/critic/img/e3__E3_wide.jpg",
+  "kb": 106
+ },
+ {
+  "id": "e3__lineup_generated",
+  "exp": "e3",
+  "shot": "lineup_generated",
+  "file": "build/critic/img/e3__lineup_generated.jpg",
+  "kb": 130
+ },
+ {
+  "id": "e3__lineup_procedural",
+  "exp": "e3",
+  "shot": "lineup_procedural",
+  "file": "build/critic/img/e3__lineup_procedural.jpg",
+  "kb": 131
+ }
+]

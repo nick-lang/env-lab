@@ -1,0 +1,155 @@
+{
+ "items": [
+  {
+   "kind": "tree",
+   "name": "SM_Tree_Oak",
+   "seed": 3,
+   "params": {
+    "height": 11.0,
+    "trunk_frac": 0.45,
+    "radius": 0.32,
+    "taper": 0.55,
+    "levels": 3,
+    "children": [
+     3,
+     5
+    ],
+    "child_start": 0.45,
+    "branch_angle": [
+     30,
+     60
+    ],
+    "child_length": [
+     0.55,
+     0.8
+    ],
+    "child_radius": 0.55,
+    "segment_m": 0.9,
+    "jitter": 0.35,
+    "up_bias": 0.25,
+    "crown": "sphere",
+    "crown_radius": 5.0,
+    "crown_min": 0.35,
+    "cluster_size": 2.2,
+    "cards": 4,
+    "leaves_along": 2,
+    "lean": 0.06
+   }
+  },
+  {
+   "kind": "tree",
+   "name": "SM_Tree_Pine",
+   "seed": 5,
+   "params": {
+    "height": 14.0,
+    "trunk_frac": 0.95,
+    "radius": 0.28,
+    "taper": 0.35,
+    "levels": 2,
+    "children": [
+     12,
+     16
+    ],
+    "child_start": 0.2,
+    "branch_angle": [
+     70,
+     90
+    ],
+    "child_length": [
+     0.14,
+     0.26
+    ],
+    "child_radius": 0.35,
+    "segment_m": 1.0,
+    "jitter": 0.12,
+    "up_bias": 0.05,
+    "crown": "cone",
+    "crown_radius": 4.2,
+    "crown_min": 0.15,
+    "cluster_size": 2.9,
+    "cards": 3,
+    "card_aspect": 0.7,
+    "leaves_along": 6,
+    "lean": 0.02
+   }
+  },
+  {
+   "kind": "tree",
+   "name": "SM_Tree_Hawthorn",
+   "seed": 8,
+   "params": {
+    "height": 5.5,
+    "trunk_frac": 0.35,
+    "radius": 0.22,
+    "taper": 0.6,
+    "levels": 3,
+    "children": [
+     2,
+     4
+    ],
+    "child_start": 0.3,
+    "branch_angle": [
+     35,
+     75
+    ],
+    "child_length": [
+     0.6,
+     0.9
+    ],
+    "child_radius": 0.6,
+    "segment_m": 0.6,
+    "jitter": 0.6,
+    "up_bias": 0.12,
+    "crown": "spread",
+    "crown_radius": 3.2,
+    "crown_min": 0.25,
+    "cluster_size": 1.7,
+    "cards": 4,
+    "leaves_along": 3,
+    "lean": 0.18
+   }
+  },
+  {
+   "kind": "shrub",
+   "name": "SM_Shrub_A",
+   "seed": 11,
+   "params": {
+    "radius": 0.7,
+    "height": 1.0,
+    "cards": 6,
+    "card_size": 1.35
+   }
+  },
+  {
+   "kind": "shrub",
+   "name": "SM_Shrub_B",
+   "seed": 12,
+   "params": {
+    "radius": 0.95,
+    "height": 1.3,
+    "cards": 6,
+    "card_size": 1.6500000000000001
+   }
+  },
+  {
+   "kind": "grass",
+   "name": "SM_Grass_A",
+   "seed": 21,
+   "params": {
+    "width": 0.6,
+    "height": 0.45,
+    "cards": 3
+   }
+  },
+  {
+   "kind": "grass",
+   "name": "SM_Grass_B",
+   "seed": 22,
+   "params": {
+    "width": 0.8,
+    "height": 0.6,
+    "cards": 3
+   }
+  }
+ ]
+}

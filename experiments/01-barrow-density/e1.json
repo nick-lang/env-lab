@@ -1,0 +1,19 @@
+{
+  "source_map": "/Game/Maps/Barrow",
+  "target_map": "/Game/Maps/Barrow_E1",
+  "terrain_fbx": "C:/Users/nickl/Documents/env-lab/build/terrain/SM_Terrain_E1.fbx",
+  "terrain_meta": "C:/Users/nickl/Documents/env-lab/build/terrain/meta.json",
+  "terrain_dest": "/Game/Meshes/EnvLab",
+  "kit_dir": "C:/Users/nickl/Documents/env-lab/build/assets",
+  "kit_dest": "/Game/Meshes/EnvLab",
+  "kit_meshes": [
+    "SM_BoulderA", "SM_BoulderB", "SM_BoulderC",
+    "SM_RockA", "SM_RockB", "SM_RockC",
+    "SM_PebbleA", "SM_PebbleB", "SM_PebbleC",
+    "SM_ShrubA", "SM_ShrubB", "SM_ShrubC",
+    "SM_TreeA", "SM_TreeB", "SM_TreeDead"
+  ],
+  "old_ground_labels": ["GroundPlane", "GateHill", "HillWest", "HillEast", "BackdropWest", "BackdropEast"],
+  "reseat_prefixes": ["Path_", "Grass_", "Wanderer", "Dolmen_", "Rock", "Scatter", "Ward", "PlayerStart", "Ramp_"],
+  "reseat_classes": ["PlayerStart"]
+}

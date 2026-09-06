@@ -1,0 +1,62 @@
+{
+  "name": "blocks",
+  "out": "build/library/blocks",
+  "classes": [
+    {
+      "id": "large",
+      "prompt": "a single rough-hewn grey granite building block, long rectangular, hand-cut faces, chipped worn edges, faint lichen speckles, lying on its long side",
+      "count": 6,
+      "seed": 100,
+      "dims": [
+        0.8,
+        0.45,
+        0.4
+      ],
+      "tris": 24000,
+      "center": true,
+      "align": true
+    },
+    {
+      "id": "medium",
+      "prompt": "a single rough-hewn grey granite building block, rectangular, hand-cut faces, chipped worn edges, lying flat",
+      "count": 6,
+      "seed": 200,
+      "dims": [
+        0.55,
+        0.42,
+        0.32
+      ],
+      "tris": 20000,
+      "center": true,
+      "align": true
+    },
+    {
+      "id": "small",
+      "prompt": "a single small rough-hewn grey granite building block, squarish, hand-cut faces, chipped corners, lying flat",
+      "count": 6,
+      "seed": 300,
+      "dims": [
+        0.36,
+        0.32,
+        0.25
+      ],
+      "tris": 14000,
+      "center": true,
+      "align": true
+    },
+    {
+      "id": "slab",
+      "prompt": "a single flat irregular grey flagstone paving slab, worn smooth top, chipped edges, seen from above at an angle",
+      "count": 6,
+      "seed": 400,
+      "dims": [
+        0.9,
+        0.7,
+        0.12
+      ],
+      "tris": 16000,
+      "center": true,
+      "align": true
+    }
+  ]
+}
